@@ -3,13 +3,28 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Personal from "./pages/Personal";
+import Summary from "./pages/Summary";
+import Diet from "./pages/Diet";
+import MealCalculator from "./pages/MealCalculator";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={ <App />}>
+        <Route path="/pages/Personal" element={<Personal />} />
+        <Route path="/pages/Summary" element={<Summary />} />
+        <Route path="/pages/Diet" element={<Diet />} />
+        <Route path="/pages/MealCalculator" element={<MealCalculator />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
