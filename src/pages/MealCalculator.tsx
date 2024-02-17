@@ -1,3 +1,5 @@
+import Title from "../components/Title"
+
 const MealCalculator = () => {
     let weight = 81;
     let age = 30;
@@ -5,7 +7,7 @@ const MealCalculator = () => {
     let height = 177
     return (
         <div className="w-full">
-            MealCalculator
+            <Title title="Meal Calculator"/>
         </div>
     );
 }

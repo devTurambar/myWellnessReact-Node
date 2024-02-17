@@ -10,6 +10,9 @@ import Personal from "./pages/Personal";
 import Summary from "./pages/Summary";
 import Diet from './pages/Diet';
 import MealCalculator from './pages/MealCalculator';
+import EditPersonal from './pages/EditPersonal';
+import AppRoutes from './appRoutes'; 
+
 
 
 function App() {
@@ -19,13 +22,10 @@ function App() {
       <NavBar />
       <div className="App flex">
         <Sidebar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/pages/Personal" element={<Personal />} />
-          <Route path="/pages/Summary" element={<Summary />} />
-          <Route path="/pages/Diet" element={<Diet />} />
-          <Route path="/pages/MealCalculator" element={<MealCalculator />} />
-        </Routes>
+        <div className='flex min-h-screen flex-col items-center justify-between p-6 w-full'>
+          <AppRoutes />
+        </div>
+
       </div>      
     </div>
 

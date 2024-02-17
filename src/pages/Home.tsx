@@ -1,3 +1,5 @@
+import Title from "../components/Title"
+
 const Home = () => {
     let weight = 81;
     let age = 30;
@@ -5,7 +7,7 @@ const Home = () => {
     let height = 177
     return (
         <div className="w-full">
-            Homepage
+            <Title title="Homepage"/>
         </div>
     );
 }
