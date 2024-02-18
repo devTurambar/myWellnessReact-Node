@@ -1,34 +1,36 @@
 import Title from "../components/Title"
 import Button from "../components/Button"
 import { Link } from "react-router-dom";
+import React, { useContext, useEffect } from 'react';
+import { UserContext, UserStorage } from '../userStorage'; // Import the created context
 
 const Personal = () => {
-    let weight = 81;
-    let age = 30;
-    let gender = "Male";
-    let height = 177
+    const data = useContext(UserContext);
+    // const user = data?.userData;
+
+    const func = () => console.log("Personal.tsx")
     return (
         <div className="w-full">
             <Title title="Personal Information"/>
             <div className="nome">
-                Name: {"Jonh Doe"}
+                Name: {data?.userData.name}
             </div>
             <div className="weight">
-                Weight: {weight+" kg"}
+                Weight (kg): {data?.userData.weight}
             </div>
             <div className="age">
-                Age: {age+" years"}
+                Age: {data?.userData.age}
             </div>
             <div className="height">
-                Height: {height} cm
+                Height (cm): {data?.userData.height}
             </div>
             <div className="gender">
-                Gender: {gender}
+                Gender: {data?.userData.gender}
             </div>
             <Link to="/pages/editPersonal">
                 <Button 
                     buttonText="Edit"
-                    func={() => {}}
+                    func={func}
                 />
             </Link>
         </div>

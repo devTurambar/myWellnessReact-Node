@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar';
 import Sidebar from './components/Sidebar';
-import Inside from './Inside';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Personal from "./pages/Personal";

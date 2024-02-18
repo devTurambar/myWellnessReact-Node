@@ -10,6 +10,7 @@ import Diet from "./pages/Diet";
 import MealCalculator from "./pages/MealCalculator";
 import editPersonal from "./pages/EditPersonal";
 import EditPersonal from './pages/EditPersonal';
+import { UserStorage } from './userStorage'; // Import your UserProvider
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -17,17 +18,19 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={ <App />}>
-          <Route path="/pages/Personal" element={<Personal />} />
-          <Route path="/pages/Summary" element={<Summary />} />
-          <Route path="/pages/Diet" element={<Diet />} />
-          <Route path="/pages/MealCalculator" element={<MealCalculator />} />
-          <Route path="/pages/editPersonal" element={<EditPersonal />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <UserStorage>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={ <App />}>
+            <Route path="/pages/Personal" element={<Personal />} />
+            <Route path="/pages/Summary" element={<Summary />} />
+            <Route path="/pages/Diet" element={<Diet />} />
+            <Route path="/pages/MealCalculator" element={<MealCalculator />} />
+            <Route path="/pages/editPersonal" element={<EditPersonal />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </UserStorage>
   </React.StrictMode>
 );
 
