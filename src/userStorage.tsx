@@ -6,8 +6,12 @@ interface UserData {
   age: string;
   height:string;
   gender:string;
-  // Add other data fields with their types as needed
+  tmb:string;
+  ndc:string;
 }
+// TMB: O metabolismo basal refere-se à quantidade de energia (calorias) que o corpo queima em repouso para manter suas funções vitais, como respiração, circulação sanguínea e funcionamento dos órgãos. Ele é influenciado pela idade, sexo, composição corporal e genética. O metabolismo basal desempenha um papel fundamental no peso, uma vez que representa a maior parte das calorias queimadas diariamente.
+
+//Indivíduos com metabolismo basal mais rápido tendem a queimar mais calorias, o que pode facilitar a perda de peso, enquanto aqueles com um metabolismo basal mais lento podem enfrentar um desafio adicional na manutenção do peso ideal. Portanto, compreender o metabolismo basal é crucial ao planejar estratégias de emagrecimento ou manutenção de peso saudável.
 
 interface UserContextValue {
   userData: UserData;
@@ -15,9 +19,6 @@ interface UserContextValue {
 }
 
 const UserContext = createContext<UserContextValue | null>(null);
-
-console.log("here first")
-console.log(UserContext)
 
 //Structure of React.FC:
 //React.FC<Props = {}> = (props: Props) => React.ReactNode;
@@ -28,23 +29,19 @@ const UserStorage: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     age:"",
     height:"",
     gender:"",
+    tmb:"",
+    ndc:"",
   });
 
   const updateUserData = (newData: Partial<UserData>) => {
     setUserData({ ...userData, ...newData });
   };
 
-  console.log("here second")
-  console.log(userData)
-  console.log(setUserData)
 
   const userDataValue: UserContextValue = {
     userData,
     updateUserData,
   };
-
-  console.log("here third")
-  console.log(userDataValue)
 
   return (
     <UserContext.Provider value={userDataValue}>

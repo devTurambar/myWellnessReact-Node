@@ -8,7 +8,6 @@ const Personal = () => {
     const data = useContext(UserContext);
     // const user = data?.userData;
 
-    const func = () => console.log("Personal.tsx")
     return (
         <div className="w-full">
             <Title title="Personal Information"/>
@@ -27,10 +26,16 @@ const Personal = () => {
             <div className="gender">
                 Gender: {data?.userData.gender}
             </div>
+            <div className="tmc">
+                TMC (kcal): {data?.userData.tmb}
+            </div>
+            <div className="ndc">
+                NDC (kcal): {data?.userData.ndc}
+            </div>
             <Link to="/pages/editPersonal">
                 <Button 
                     buttonText="Edit"
-                    func={func}
+                    func={() => {}}
                 />
             </Link>
         </div>
