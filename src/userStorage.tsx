@@ -24,11 +24,11 @@ const UserContext = createContext<UserContextValue | null>(null);
 //React.FC<Props = {}> = (props: Props) => React.ReactNode;
 const UserStorage: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [userData, setUserData] = useState<UserData>({
-    name: "",
-    weight: "",
-    age:"",
-    height:"",
-    gender:"",
+    name: "John Doe",
+    weight: "82",
+    age:"33",
+    height:"177",
+    gender:"M",
     tmb:"",
     ndc:"",
   });

@@ -66,12 +66,12 @@ const EditPersonal = () => {
     const calculateTmb = () => {
         let tmb;
         //mulher
-        if(data?.userData.gender === "F" || "f"){
-            tmb = 447.593 + (13.397* Number(data?.userData.weight)) + (4.799* Number(data?.userData.weight)) + (5.677* Number(data?.userData.age));
+        if(data?.userData.gender === "F" || data?.userData.gender === "f"){
+            tmb = 447.593 + (9.247* Number(data?.userData.weight)) + (3.098* Number(data?.userData.height)) - (4.330* Number(data?.userData.age));
             console.log("tmb eh "+tmb);
         //homem
         }else{
-            tmb = 88.362 + (9.247* Number(data?.userData.weight)) + (3.098* Number(data?.userData.weight)) + (4.330* Number(data?.userData.age));
+            tmb = 88.3624 + (13.397* Number(data?.userData.weight)) + (4.799* Number(data?.userData.height)) - (5.677* Number(data?.userData.age));
             console.log("tmb eh "+tmb);
         }
         return tmb;

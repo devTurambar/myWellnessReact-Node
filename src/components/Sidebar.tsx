@@ -1,36 +1,34 @@
 import { Outlet, Link } from "react-router-dom";
+import { useState } from 'react';
 
 const Sidebar = () => {
-    const func = () => {
-      document.addEventListener("DOMContentLoaded", function () {
-        // Obtener todas las opciones principales con desplegables
-        const opcionesConDesplegable = document.querySelectorAll(".opcion-con-desplegable");
-  
-        // Agregar evento de clic a cada opción principal
-        opcionesConDesplegable.forEach(function (opcion) {
-          opcion.addEventListener("click", function () {
-            // Obtener el desplegable asociado a la opción
-            const desplegable = opcion.querySelector(".desplegable");
-  
-            // Alternar la clase "hidden" para mostrar u ocultar el desplegable
-            if(desplegable) desplegable.classList.toggle("hidden");
-          });
-        });
-      });
-    }        
+  const [isOpen, setIsOpen] = useState(true);
+
+  const toggleSideBar = () => {
+    return isOpen == true ? setIsOpen(false) : setIsOpen(true);
+  }
   
   return (
-    <div className="bg-gray-100">    
-      <aside className="bg-gray-800 text-white w-64 min-h-screen p-4">
-        <nav>
+    <div>
+      <aside className={`relative bg-gray-800 text-white min-h-screen p-4 w-16 ${isOpen == true ? 'hidden' : 'block'}`}>
+        <ul className="">
+            <li className="flex items-center justify-between hover:bg-gray-700">
+              <div className="flex items-center">
+              <div className="container" onClick={toggleSideBar}>
+                <div className={`bar1 ${isOpen == true ? 'change' : ''}`}></div>
+                <div className={`bar2 ${isOpen == true ? 'change' : ''}`}></div>
+                <div className={`bar3 ${isOpen == true ? 'change' : ''}`}></div>
+              </div>
+              </div>
+            </li> 
+        </ul>     
+      </aside>
+      <aside className={`relative bg-gray-800 text-white min-h-screen p-4 w-48 md:w-64 ${isOpen == true ? 'block' : 'hidden'}`}>
+        <div className="flex">
           <ul className="space-y-2">
-            <li className="opcion-con-desplegable">
-              <div className="flex items-center justify-between p-2 hover:bg-gray-700">
-                <div className="flex items-center">
-                  <i className="fas fa-calendar-alt mr-2"></i>
-                  <Link to="pages/Personal">Personal Data</Link>
-                </div>
-                <i className="fas fa-chevron-down text-xs"></i>
+            <li className="flex items-center justify-between p-2 hover:bg-gray-700">
+              <div className="flex items-center">
+                <Link to="pages/Personal">Personal Data</Link>
               </div>
               {/* <ul className="desplegable ml-4 hidden">
                 <li>
@@ -47,13 +45,14 @@ const Sidebar = () => {
                 </li>
               </ul> */}
             </li>
-            <li className="opcion-con-desplegable">
-              <div className="flex items-center justify-between p-2 hover:bg-gray-700">
-                <div className="flex items-center">
-                  <i className="fas fa-money-bill-wave mr-2"></i>
-                  <Link to="pages/Summary">Summary</Link>
-                </div>
-                <i className="fas fa-chevron-down text-xs"></i>
+            <li className="flex items-center justify-between p-2 hover:bg-gray-700">
+              <div className="flex items-center">
+                <div onClick={toggleSideBar}>Test</div>
+              </div>
+            </li>
+            <li className="flex items-center justify-between p-2 hover:bg-gray-700">
+              <div className="flex items-center">
+                <Link to="pages/Summary">Summary</Link>
               </div>
               {/* <ul className="desplegable ml-4 hidden">
                 <li>
@@ -76,13 +75,9 @@ const Sidebar = () => {
                 </li>
               </ul> */}
             </li>
-            <li className="opcion-con-desplegable">
-              <div className="flex items-center justify-between p-2 hover:bg-gray-700">
-                <div className="flex items-center">
-                  <i className="fas fa-chart-bar mr-2"></i>
-                  <Link to="pages/Diet">Diet</Link>
-                </div>
-                <i className="fas fa-chevron-down text-xs"></i>
+            <li className="flex items-center justify-between p-2 hover:bg-gray-700">
+              <div className="flex items-center">
+                <Link to="pages/Diet">Diet</Link>
               </div>
               {/* <ul className="desplegable ml-4 hidden">
                 <li>
@@ -99,13 +94,9 @@ const Sidebar = () => {
                 </li>
               </ul> */}
             </li>
-            <li className="opcion-con-desplegable">
-              <div className="flex items-center justify-between p-2 hover:bg-gray-700">
-                <div className="flex items-center">
-                  <i className="fas fa-file-alt mr-2"></i>
-                  <Link to="pages/MealCalculator">MealCalculator</Link>
-                </div>
-                <i className="fas fa-chevron-down text-xs"></i>
+            <li className="flex items-center justify-between p-2 hover:bg-gray-700">
+              <div className="flex items-center">
+                <Link to="pages/MealCalculator">MealCalculator</Link>
               </div>
               {/* <ul className="desplegable ml-4 hidden">
                 <li>
@@ -123,9 +114,17 @@ const Sidebar = () => {
               </ul> */}
             </li>
           </ul>
-        </nav>
+          <div>
+          <div className="container" onClick={toggleSideBar}>
+                <div className={`bar1 ${isOpen == true ? 'change' : ''}`}></div>
+                <div className={`bar2 ${isOpen == true ? 'change' : ''}`}></div>
+                <div className={`bar3 ${isOpen == true ? 'change' : ''}`}></div>
+              </div>
+          </div>         
+        </div>
       </aside>
     </div>
+
   );
 };
 
