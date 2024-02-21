@@ -13,7 +13,7 @@ const Sidebar = () => {
   
   return (
     <div className={`${side?.sideBarOpen ?  "w-full" : "w-unset-640min"} w-unset-640min`}>
-      <aside id="minimizedSideBar" className={`relative bg-gray-800 text-white min-h-screen p-4 w-16 ${side?.sideBarOpen == true ? 'hidden' : 'block'}`}>
+      <aside id="minimizedSideBar" className={`relative bg-gray-800 text-white min-h-screen p-4 w-16 hidden trans`}>
         <ul className="">
             <li className="flex items-center justify-between hover:bg-gray-700">
               <div className="flex items-center">
@@ -26,27 +26,13 @@ const Sidebar = () => {
             </li> 
         </ul>     
       </aside>
-      <aside id="expandedSideBar" className={`relative bg-gray-800 text-white min-h-screen p-4 w-full md:w-64 ${side?.sideBarOpen == true ? 'block' : 'hidden'}`}>
+      <aside id="expandedSideBar" className={`relative bg-gray-800 text-white min-h-screen p-4 ${side?.sideBarOpen == true ? 'w-full md:w-64' : 'w-16'} block trans`}>
         <div className="flex">
-          <ul className="space-y-2">
-            <li className="flex items-center justify-between p-2 hover:bg-gray-700">
+          <ul className={`${side?.sideBarOpen == true ? 'space-y-2' : 'hidden'}`}>
+            <li className={`flex items-center justify-between hover:bg-gray-700 ${side?.sideBarOpen == true ? 'p-2' : ''}`}>
               <div className="flex items-center">
                 <Link to="pages/Personal" onClick={() => side?.updateSideBarOpen(false)}>Personal Data</Link>
               </div>
-              {/* <ul className="desplegable ml-4 hidden">
-                <li>
-                  <a href="#" className="block p-2 hover:bg-gray-700 flex items-center">
-                    <i className="fas fa-chevron-right mr-2 text-xs"></i>
-                    Appointment management
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="block p-2 hover:bg-gray-700 flex items-center">
-                    <i className="fas fa-chevron-right mr-2 text-xs"></i>
-                    Policies
-                  </a>
-                </li>
-              </ul> */}
             </li>
             <li className="flex items-center justify-between p-2 hover:bg-gray-700">
               <div className="flex items-center">
@@ -57,67 +43,19 @@ const Sidebar = () => {
               <div className="flex items-center">
                 <Link to="pages/Summary" onClick={() => side?.updateSideBarOpen(false)}>Summary</Link>
               </div>
-              {/* <ul className="desplegable ml-4 hidden">
-                <li>
-                  <a href="#" className="block p-2 hover:bg-gray-700 flex items-center">
-                    <i className="fas fa-chevron-right mr-2 text-xs"></i>
-                    Treatments
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="block p-2 hover:bg-gray-700 flex items-center">
-                    <i className="fas fa-chevron-right mr-2 text-xs"></i>
-                    Spent
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="block p-2 hover:bg-gray-700 flex items-center">
-                    <i className="fas fa-chevron-right mr-2 text-xs"></i>
-                    Invoices
-                  </a>
-                </li>
-              </ul> */}
             </li>
             <li className="flex items-center justify-between p-2 hover:bg-gray-700">
               <div className="flex items-center">
                 <Link to="pages/Diet" onClick={() => side?.updateSideBarOpen(false)}>Diet</Link>
               </div>
-              {/* <ul className="desplegable ml-4 hidden">
-                <li>
-                  <a href="#" className="block p-2 hover:bg-gray-700 flex items-center">
-                    <i className="fas fa-chevron-right mr-2 text-xs"></i>
-                    Reports
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="block p-2 hover:bg-gray-700 flex items-center">
-                    <i className="fas fa-chevron-right mr-2 text-xs"></i>
-                    Medical report
-                  </a>
-                </li>
-              </ul> */}
             </li>
             <li className="flex items-center justify-between p-2 hover:bg-gray-700">
               <div className="flex items-center">
                 <Link to="pages/MealCalculator" onClick={() => side?.updateSideBarOpen(false)}>MealCalculator</Link>
               </div>
-              {/* <ul className="desplegable ml-4 hidden">
-                <li>
-                  <a href="#" className="block p-2 hover:bg-gray-700 flex items-center">
-                    <i className="fas fa-chevron-right mr-2 text-xs"></i>
-                    Pending Signatures
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="block p-2 hover:bg-gray-700 flex items-center">
-                    <i className="fas fa-chevron-right mr-2 text-xs"></i>
-                    Documents
-                  </a>
-                </li>
-              </ul> */}
             </li>
           </ul>
-          <div className="containerCloseX" onClick={toggleSideBar}>
+          <div className="containerCloseX m-0 sm:ml-auto" onClick={toggleSideBar}>
               <div className={`bar1 ${side?.sideBarOpen == true ? 'change' : ''}`}></div>
               <div className={`bar2 ${side?.sideBarOpen == true ? 'change' : ''}`}></div>
               <div className={`bar3 ${side?.sideBarOpen == true ? 'change' : ''}`}></div>

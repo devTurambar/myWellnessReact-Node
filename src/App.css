@@ -44,3 +44,8 @@
         width: unset;
     }
  }
+
+ .trans{
+    transition: opacity 0.3s;
+    opacity: 1;
+ }
