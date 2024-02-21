@@ -10,11 +10,11 @@ const Sidebar = () => {
   
   return (
     <div>
-      <aside className={`relative bg-gray-800 text-white min-h-screen p-4 w-16 ${isOpen == true ? 'hidden' : 'block'}`}>
+      <aside id="minimizedSideBar" className={`relative bg-gray-800 text-white min-h-screen p-4 w-16 ${isOpen == true ? 'hidden' : 'block'}`}>
         <ul className="">
             <li className="flex items-center justify-between hover:bg-gray-700">
               <div className="flex items-center">
-              <div className="container" onClick={toggleSideBar}>
+              <div className="containerHamburguer" onClick={toggleSideBar}>
                 <div className={`bar1 ${isOpen == true ? 'change' : ''}`}></div>
                 <div className={`bar2 ${isOpen == true ? 'change' : ''}`}></div>
                 <div className={`bar3 ${isOpen == true ? 'change' : ''}`}></div>
@@ -23,7 +23,7 @@ const Sidebar = () => {
             </li> 
         </ul>     
       </aside>
-      <aside className={`relative bg-gray-800 text-white min-h-screen p-4 w-48 md:w-64 ${isOpen == true ? 'block' : 'hidden'}`}>
+      <aside id="expandedSideBar" className={`relative bg-gray-800 text-white min-h-screen p-4 w-full md:w-64 ${isOpen == true ? 'block' : 'hidden'}`}>
         <div className="flex">
           <ul className="space-y-2">
             <li className="flex items-center justify-between p-2 hover:bg-gray-700">
@@ -114,15 +114,14 @@ const Sidebar = () => {
               </ul> */}
             </li>
           </ul>
-          <div>
-          <div className="container" onClick={toggleSideBar}>
-                <div className={`bar1 ${isOpen == true ? 'change' : ''}`}></div>
-                <div className={`bar2 ${isOpen == true ? 'change' : ''}`}></div>
-                <div className={`bar3 ${isOpen == true ? 'change' : ''}`}></div>
-              </div>
-          </div>         
+          <div className="containerCloseX" onClick={toggleSideBar}>
+              <div className={`bar1 ${isOpen == true ? 'change' : ''}`}></div>
+              <div className={`bar2 ${isOpen == true ? 'change' : ''}`}></div>
+              <div className={`bar3 ${isOpen == true ? 'change' : ''}`}></div>
+          </div>        
         </div>
       </aside>
+      {/* <div className={`hidden micro:hidden sidebar-overlay ${isOpen == true ? 'active' : ''}`} onClick={toggleSideBar}></div> */}
     </div>
 
   );
