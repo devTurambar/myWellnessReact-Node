@@ -38,3 +38,9 @@
     opacity: 1;
     visibility: visible;
 }
+
+@media (min-width: 640px) { 
+    .w-unset-640min{
+        width: unset;
+    }
+ }

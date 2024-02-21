@@ -12,7 +12,7 @@ const Sidebar = () => {
   }
   
   return (
-    <div className="w-full">
+    <div className={`${side?.sideBarOpen ?  "w-full" : "w-unset-640min"} w-unset-640min`}>
       <aside id="minimizedSideBar" className={`relative bg-gray-800 text-white min-h-screen p-4 w-16 ${side?.sideBarOpen == true ? 'hidden' : 'block'}`}>
         <ul className="">
             <li className="flex items-center justify-between hover:bg-gray-700">
@@ -31,7 +31,7 @@ const Sidebar = () => {
           <ul className="space-y-2">
             <li className="flex items-center justify-between p-2 hover:bg-gray-700">
               <div className="flex items-center">
-                <Link to="pages/Personal">Personal Data</Link>
+                <Link to="pages/Personal" onClick={() => side?.updateSideBarOpen(false)}>Personal Data</Link>
               </div>
               {/* <ul className="desplegable ml-4 hidden">
                 <li>
@@ -55,7 +55,7 @@ const Sidebar = () => {
             </li>
             <li className="flex items-center justify-between p-2 hover:bg-gray-700">
               <div className="flex items-center">
-                <Link to="pages/Summary">Summary</Link>
+                <Link to="pages/Summary" onClick={() => side?.updateSideBarOpen(false)}>Summary</Link>
               </div>
               {/* <ul className="desplegable ml-4 hidden">
                 <li>
@@ -80,7 +80,7 @@ const Sidebar = () => {
             </li>
             <li className="flex items-center justify-between p-2 hover:bg-gray-700">
               <div className="flex items-center">
-                <Link to="pages/Diet">Diet</Link>
+                <Link to="pages/Diet" onClick={() => side?.updateSideBarOpen(false)}>Diet</Link>
               </div>
               {/* <ul className="desplegable ml-4 hidden">
                 <li>
@@ -99,7 +99,7 @@ const Sidebar = () => {
             </li>
             <li className="flex items-center justify-between p-2 hover:bg-gray-700">
               <div className="flex items-center">
-                <Link to="pages/MealCalculator">MealCalculator</Link>
+                <Link to="pages/MealCalculator" onClick={() => side?.updateSideBarOpen(false)}>MealCalculator</Link>
               </div>
               {/* <ul className="desplegable ml-4 hidden">
                 <li>
