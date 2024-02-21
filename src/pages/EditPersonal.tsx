@@ -1,8 +1,7 @@
 import Title from "../components/Title";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import React, { useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { UserContext } from '../userStorage'; // Import the created context
 
 const EditPersonal = () => {

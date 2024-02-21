@@ -1,29 +1,32 @@
 import { Outlet, Link } from "react-router-dom";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { SideBarContext } from "../sideBarStorage";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
 
+  const side = useContext(SideBarContext);
+
   const toggleSideBar = () => {
-    return isOpen == true ? setIsOpen(false) : setIsOpen(true);
+    return side?.sideBarOpen == true ? side?.updateSideBarOpen(false) : side?.updateSideBarOpen(true);
   }
   
   return (
-    <div>
-      <aside id="minimizedSideBar" className={`relative bg-gray-800 text-white min-h-screen p-4 w-16 ${isOpen == true ? 'hidden' : 'block'}`}>
+    <div className="w-full">
+      <aside id="minimizedSideBar" className={`relative bg-gray-800 text-white min-h-screen p-4 w-16 ${side?.sideBarOpen == true ? 'hidden' : 'block'}`}>
         <ul className="">
             <li className="flex items-center justify-between hover:bg-gray-700">
               <div className="flex items-center">
               <div className="containerHamburguer" onClick={toggleSideBar}>
-                <div className={`bar1 ${isOpen == true ? 'change' : ''}`}></div>
-                <div className={`bar2 ${isOpen == true ? 'change' : ''}`}></div>
-                <div className={`bar3 ${isOpen == true ? 'change' : ''}`}></div>
+                <div className={`bar1 ${side?.sideBarOpen == true ? 'change' : ''}`}></div>
+                <div className={`bar2 ${side?.sideBarOpen == true ? 'change' : ''}`}></div>
+                <div className={`bar3 ${side?.sideBarOpen == true ? 'change' : ''}`}></div>
               </div>
               </div>
             </li> 
         </ul>     
       </aside>
-      <aside id="expandedSideBar" className={`relative bg-gray-800 text-white min-h-screen p-4 w-full md:w-64 ${isOpen == true ? 'block' : 'hidden'}`}>
+      <aside id="expandedSideBar" className={`relative bg-gray-800 text-white min-h-screen p-4 w-full md:w-64 ${side?.sideBarOpen == true ? 'block' : 'hidden'}`}>
         <div className="flex">
           <ul className="space-y-2">
             <li className="flex items-center justify-between p-2 hover:bg-gray-700">
@@ -115,9 +118,9 @@ const Sidebar = () => {
             </li>
           </ul>
           <div className="containerCloseX" onClick={toggleSideBar}>
-              <div className={`bar1 ${isOpen == true ? 'change' : ''}`}></div>
-              <div className={`bar2 ${isOpen == true ? 'change' : ''}`}></div>
-              <div className={`bar3 ${isOpen == true ? 'change' : ''}`}></div>
+              <div className={`bar1 ${side?.sideBarOpen == true ? 'change' : ''}`}></div>
+              <div className={`bar2 ${side?.sideBarOpen == true ? 'change' : ''}`}></div>
+              <div className={`bar3 ${side?.sideBarOpen == true ? 'change' : ''}`}></div>
           </div>        
         </div>
       </aside>
