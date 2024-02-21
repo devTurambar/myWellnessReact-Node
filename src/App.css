@@ -1,7 +1,8 @@
-.containerHamburguer, .containerCloseX {
-    display: inline-block;
-    cursor: pointer;
-    margin-left: auto;
+#expandedSideBar{
+    -webkit-transition: width 600ms ease-out;
+    -moz-transition: width 600ms ease-out;
+    -o-transition: width 600ms ease-out;
+    transition: width 600ms ease-out;
 }
   
 .bar1, .bar2, .bar3 {

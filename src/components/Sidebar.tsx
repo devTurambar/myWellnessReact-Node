@@ -55,7 +55,7 @@ const Sidebar = () => {
               </div>
             </li>
           </ul>
-          <div className="containerCloseX m-0 sm:ml-auto" onClick={toggleSideBar}>
+          <div className={`cursor-pointer ${side?.sideBarOpen == true ? 'ml-auto mr-0 my-0' : 'm-auto'}`} onClick={toggleSideBar}>
               <div className={`bar1 ${side?.sideBarOpen == true ? 'change' : ''}`}></div>
               <div className={`bar2 ${side?.sideBarOpen == true ? 'change' : ''}`}></div>
               <div className={`bar3 ${side?.sideBarOpen == true ? 'change' : ''}`}></div>
