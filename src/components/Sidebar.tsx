@@ -36,11 +36,6 @@ const Sidebar = () => {
             </li>
             <li className="flex items-center justify-between p-2 hover:bg-gray-700">
               <div className="flex items-center">
-                <div onClick={toggleSideBar}>Test</div>
-              </div>
-            </li>
-            <li className="flex items-center justify-between p-2 hover:bg-gray-700">
-              <div className="flex items-center">
                 <Link to="pages/Summary" onClick={() => side?.updateSideBarOpen(false)}>Summary</Link>
               </div>
             </li>
@@ -51,7 +46,7 @@ const Sidebar = () => {
             </li>
             <li className="flex items-center justify-between p-2 hover:bg-gray-700">
               <div className="flex items-center">
-                <Link to="pages/MealCalculator" onClick={() => side?.updateSideBarOpen(false)}>MealCalculator</Link>
+                <Link to="pages/MealCalculator" onClick={() => side?.updateSideBarOpen(false)}>Calories Calculator</Link>
               </div>
             </li>
           </ul>
