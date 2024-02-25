@@ -2,7 +2,7 @@ const FormCalculator = () => {
     return (
         <div>
             <form className="w-full flex items-center justify-center gap-2">
-                <div className="nome">
+                <div className="ingredient">
                     <label className="mr-2">
                     Ingredient                            
                     </label>
@@ -24,7 +24,7 @@ const FormCalculator = () => {
                         </option>
                     </select>
                 </div> 
-                <div className="nome">
+                <div className="quantity">
                     <label className="mr-2">
                     Quantity (g)                         
                     </label>
