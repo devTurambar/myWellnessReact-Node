@@ -20,9 +20,9 @@ function App() {
   return (
     <div className="">
       <NavBar />
-      <div className={`flex ${side?.sideBarOpen ?  "w-full" : "w-unset-640min"}`}>
+      <div className={`flex ${side?.sideBarOpen ?  "w-full" : "w-unset-640min"} w-unset-640min`}>
         <Sidebar />
-        <div className={`${side?.sideBarOpen ?  "hidden" : "flex"} sm:flex min-h-screen flex-col items-center justify-between p-6 w-full`}>
+        <div className={`${side?.sideBarOpen ?  "hidden" : "flex"} sm:flex min-h-screen flex-col items-center justify-between py-6 w-full`}>
           <AppRoutes />
         </div>
 

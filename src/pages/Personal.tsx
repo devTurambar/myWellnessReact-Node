@@ -39,6 +39,7 @@ const Personal = () => {
                     <Button 
                         buttonText="Edit"
                         func={() => {}}
+                        type="submit"
             />
             </Link> 
         </div>

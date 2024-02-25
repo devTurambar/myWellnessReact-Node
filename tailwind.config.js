@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'santas': '#EC0000',
+      },
+    },
     screens: {
       'micro': '420px',
       // => @media (min-width: 640px) { ... }

@@ -3,8 +3,11 @@ import Button from "../components/Button";
 import { Link } from "react-router-dom";
 import React, { useState, useContext, useEffect } from 'react';
 import { UserContext } from '../userStorage'; // Import the created context
+import { useRef } from 'react';
 
 const EditPersonal = () => {
+    const myRef = useRef<HTMLSpanElement>(null);
+
     const [input, setInput] = useState({
         name:"",
         weight:0
@@ -46,9 +49,24 @@ const EditPersonal = () => {
         });
     }
     const updateGender = (gender:string) => {
-        data?.updateUserData({
-            gender: gender,
-        });
+        if(gender === "Unicorn"){
+            displayErrorMessage();
+        }else{
+            data?.updateUserData({
+                gender: gender,
+            });
+            hideErrorMessage();
+        }
+
+    }
+    const displayErrorMessage = () => {
+        if(myRef.current)
+            myRef.current.style.display = "block"
+    }
+
+    const hideErrorMessage = () => {
+        if(myRef.current)
+            myRef.current.style.display = "none"
     }
     const updateTmb = (tmb:string) => {
         data?.updateUserData({
@@ -93,43 +111,53 @@ const EditPersonal = () => {
     return (
         <div className="w-full px-10">
             <Title title="Edit Personal Information"/>
-            <div className="">
-                <form className="w-full flex flex-col items-center">
-                    <div className="mb-4 flex justify-center gap-2 w-40 sm:w-60 md:w-80" id="name">
-                        <label className="pr-2 w-1/5">
+            <div className="flex flex-col items-center gap-2 justify-center">
+                <form className="grid grid-flow-row grid-auto-column-form gap-2 flex-1">
+                    <div className="mb-4 flex justify-center gap-2" id="name">
+                        <label className="pr-2">
                             Name
                         </label>                           
                         <input type="text" className="bg-gray-200 border-2 rounded w-4/5" onChange={e => updateName(e.target.value)}
                     />
                     </div>
-                    <div className="mb-4 flex justify-center gap-2 w-40 sm:w-60 md:w-80" id="">
-                        <label className="pr-2 w-1/5">
-                            Weight
+                    <div className="mb-4 flex justify-center gap-2" id="">
+                        <label className="pr-2">
+                            Weight (kg)
                         </label>                           
-                        <input type="text" className="bg-gray-200 border-2 rounded w-4/5" onChange={e => updateWeight(e.target.value)} />
+                        <input type="text" className="bg-gray-200 border-2 rounded" onChange={e => updateWeight(e.target.value)} />
                     </div>
-                    <div className="mb-4 flex justify-center gap-2 w-40 sm:w-60 md:w-80" id="">
-                        <label className="pr-2 w-1/5">
+                    <div className="mb-4 flex justify-center gap-2" id="">
+                        <label className="pr-2">
                             Age
                         </label>                           
-                        <input type="text" className="bg-gray-200 border-2 rounded w-4/5" onChange={e => updateAge(e.target.value)} />
+                        <input type="text" className="bg-gray-200 border-2 rounded" onChange={e => updateAge(e.target.value)} />
                     </div>
-                    <div className="mb-4 flex justify-center gap-2 w-40 sm:w-60 md:w-80" id="">
-                        <label className="pr-2 w-1/5">
-                            Height
+                    <div className="mb-4 flex justify-center gap-2" id="">
+                        <label className="pr-2">
+                            Height (cm)
                         </label>                           
-                        <input type="text" className="bg-gray-200 border-2 rounded w-4/5" onChange={e => updateHeight(e.target.value)} />
+                        <input type="text" className="bg-gray-200 border-2 rounded" onChange={e => updateHeight(e.target.value)} />
                     </div>
-                    <div className="mb-4 flex justify-center gap-2 w-40 sm:w-60 md:w-80" id="">
-                        <label className="pr-2 w-1/5">
-                            Gender
-                        </label>                           
-                        <input type="text" className="bg-gray-200 border-2 rounded w-4/5" onChange={e => updateGender(e.target.value)} />
+                    <div className="flex flex-col">
+                        <div className="mb-4 flex justify-center gap-2" id="">
+                            <label className="pr-2">
+                                Gender
+                            </label>
+                            <select className="bg-gray-200 border-2 rounded" onChange={e => updateGender(e.target.value)}>
+                                <option></option>
+                                <option value="M">M</option>
+                                <option value="F">F</option>
+                                <option value="Unicorn">Unicorn</option>
+                            </select>       
+                        </div>
+                        <span ref={myRef} className="hidden text-small text-santas">There are only 2 genders, u ape</span>                   
                     </div>
+
                     <Link to="../pages/Personal">
                         <Button 
                             buttonText="Edit"
                             func={updateTmbNdc}
+                            type="submit"
                         />
                     </Link>
                 </form>

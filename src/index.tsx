@@ -10,6 +10,7 @@ import Diet from "./pages/Diet";
 import MealCalculator from "./pages/MealCalculator";
 import editPersonal from "./pages/EditPersonal";
 import EditPersonal from './pages/EditPersonal';
+import MealResults from './pages/MealResults';
 import { UserStorage } from './userStorage'; // Import your UserProvider
 import { SideBarStorage } from './sideBarStorage';
 
@@ -29,6 +30,7 @@ root.render(
               <Route path="/pages/Diet" element={<Diet />} />
               <Route path="/pages/MealCalculator" element={<MealCalculator />} />
               <Route path="/pages/editPersonal" element={<EditPersonal />} />
+              <Route path="/pages/MealResults" element={<MealResults />} />
             </Route>
           </Routes>
         </BrowserRouter>

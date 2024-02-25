@@ -12,7 +12,7 @@ const Sidebar = () => {
   }
   
   return (
-    <div className={`${side?.sideBarOpen ?  "w-full" : "w-unset-640min"}`}>
+    <div className={`${side?.sideBarOpen ?  "w-full" : "w-unset-640min"} w-unset-640min`}>
       <aside id="minimizedSideBar" className={`relative bg-gray-800 text-white min-h-screen p-4 w-16 hidden trans`}>
         <ul className="">
             <li className="flex items-center justify-between hover:bg-gray-700">

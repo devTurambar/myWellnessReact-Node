@@ -6,6 +6,7 @@ import Summary from "./pages/Summary";
 import Diet from './pages/Diet';
 import MealCalculator from './pages/MealCalculator';
 import EditPersonal from './pages/EditPersonal';
+import MealResults from './pages/MealResults';
 
 
 function appRoutes() {
@@ -17,6 +18,7 @@ function appRoutes() {
         <Route path="/pages/Diet" element={<Diet />} />
         <Route path="/pages/MealCalculator" element={<MealCalculator />} />
         <Route path="/pages/editPersonal" element={<EditPersonal />} />     
+        <Route path="/pages/MealResults" element={<MealResults />} />     
       </Routes>
 
   );
