@@ -19,13 +19,33 @@ const MealCalculator = () => {
     // })
     // .then(response => response.json())
 
-    const handleInputFormData = () => {
-        
+    const handleInputFormData = (input:object) => {
+        interface Request {
+            ingredient: string;
+            status: string;
+            weight: string;
+            [key: string]: any;
+          }
+        const size = Object.keys(input).length;
+        let requests:Request[] = [];
+        let i = 0;
+        for(const [key, value] of Object.entries(input)){
+            const index = Number(key.slice(key.length-1))-1;
+            const property = key.slice(0, key.length - 1) as 'ingredient' | 'status' | 'weight';
+
+            if(!requests[index]){
+                requests[index] = {} as Request
+            }
+            requests[Number(index)][property] = value;
+        }
+        console.log(requests)
+        console.log("heree")
     }
 
     const getApiData = (input:object) => {
         console.log("here");
         console.log(input);
+        handleInputFormData(input);
         // navigate("../pages/MealResults",{state:{id:1,name:'sabaoon'}});
         // fetch(url+input, {
         //     method: "GET",
