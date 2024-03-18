@@ -4,8 +4,8 @@ import FormCalculatorLine from "./FormCalculatorLine";
 import { useRef, useState } from "react";
 
 interface Props {
-    getApiFunc: (input: object) => void;
-  }
+    calculateMeal: (input: object) => void;
+}
 
 const FormCalculator: React.FC<Props> = (props) => {    
     const fieldsRef = useRef(null);
@@ -26,7 +26,7 @@ const FormCalculator: React.FC<Props> = (props) => {
             const form = e.target;
             const formData = new FormData(form);
             const formJson = Object.fromEntries(formData.entries());
-            props.getApiFunc(formJson);
+            props.calculateMeal(formJson);
         }else {
             // Handle the case where e.target is not an HTMLFormElement
             console.error("Unexpected event target type");
