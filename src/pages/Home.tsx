@@ -13,7 +13,9 @@ const Home = () => {
     return (
         <div className="w-full">
             <Title title="Homepage"/>
-            
+            <p className="text-center">
+                22/03/2024 - Next incoming feature: Add mannually calories per serving size to get results (Calories Calculator)
+            </p>
         </div>
     );
 }

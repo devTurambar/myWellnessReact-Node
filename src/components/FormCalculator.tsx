@@ -31,17 +31,6 @@ const FormCalculator: React.FC<Props> = (props) => {
             // Handle the case where e.target is not an HTMLFormElement
             console.error("Unexpected event target type");
         }
-        // e.preventDefault();
-        // if (e.target instanceof HTMLFormElement) {
-        //     const form = e.target;
-        //     var formData = new FormData(form);
-        //     for (const [key, value] of formData.entries()) { 
-        //     console.log(key, value);
-        //    }
-        // }else {
-        //     // Handle the case where e.target is not an HTMLFormElement
-        //     console.error("Unexpected event target type");
-        // }
     }
     return (
         <div className="block">
@@ -60,6 +49,12 @@ const FormCalculator: React.FC<Props> = (props) => {
                         <div className="minus">               
                         </div>
                     </div>
+                </div>
+                <div className="mt-5">
+                    Or add mannually (incoming feature)
+                    <form>
+
+                    </form>
                 </div>
                 <div className="flex justify-center">
                     <span className="">
